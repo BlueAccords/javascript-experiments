@@ -90,6 +90,15 @@ function showMessage(title, message){
     },function () {
       onDisplayMessage(title,message);
     });
+
+     setTimeout(messageTimeOut, 5000);
+
+}
+
+function messageTimeOut(){
+    chrome.notifications.clear('goal-reminder',function () {
+        restartCountDown();
+      });
 }
 
 function onDisplayMessage(title,message) {
